@@ -46,6 +46,8 @@ fi
 
 if [ "X$WORKSPACE" != "X" ];then
 #running on Jenkins WORKSPACE is defined and we want to generate and run the config files
+  echo $CMS_PATH
+  which dasgoclient
   if [ "X$RUNTIMEMEMORY" != "X" ]; then
       runTheMatrix.py -w upgrade -l $PROFILING_WORKFLOW --command=--number=$EVENTS\ --nThreads=1\ --customise=Validation/Performance/TimeMemoryInfo.py\ --dirin=$WORKSPACE\ --dirout=$WORKSPACE #200PU for 11_2_X
       outname=$(ls -d ${PROFILING_WORKFLOW}*) 
